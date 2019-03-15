@@ -1,0 +1,4 @@
+VteTerminal, vte-terminal {
+    padding: 40px;
+}
+@import url("resource:///org/gnome/arc-theme/gtk-main.css");

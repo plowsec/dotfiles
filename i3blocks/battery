@@ -1,0 +1,29 @@
+#/usr/bin/env sh
+
+shopt -s extglob
+
+BATTERY="$(acpi -b | cut -d , -f 2)"
+BATTERY="${BATTERY##*( )}"
+BATTERY=${BATTERY%?}
+
+# color
+if [[ $BATTERY -ge 80 ]]; then
+  COLOUR="#a3be8c"
+  SYMB="  "
+elif [[ $BATTERY -ge 60 ]]; then
+  COLOUR="#a3be8c"
+  SYMB="  "
+elif [[ $BATTERY -ge 40 ]]; then
+  COLOUR="#ebcb8b"
+  SYMB="  "
+elif [[ $BATTERY -ge 20 ]]; then
+  COLOUR="#ebcb8b"
+  SYMB="  "
+else
+  COLOUR="#bf616a"
+  SYMB="  "
+fi
+
+echo "$SYMB$BATTERY%" # full text
+echo "$SYMB$BATTERY%" # short text
+echo $COLOUR
